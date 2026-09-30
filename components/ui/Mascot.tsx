@@ -8,8 +8,8 @@ type Position = "bottom-right" | "bottom-left" | "top-right" | "top-left";
 const positionClasses: Record<Position, string> = {
   "bottom-right": "bottom-0 right-2 sm:right-6",
   "bottom-left": "bottom-0 left-2 sm:left-6",
-  "top-right": "top-20 right-2 sm:right-6",
-  "top-left": "top-20 left-2 sm:left-6",
+  "top-right": "top-1 right-2 sm:top-20 sm:right-6",
+  "top-left": "top-1 left-2 sm:top-20 sm:left-6",
 };
 
 export function Mascot({
@@ -31,14 +31,14 @@ export function Mascot({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`pointer-events-none absolute z-10 hidden sm:block ${positionClasses[position]} ${className}`}
+      className={`pointer-events-none absolute z-10 ${positionClasses[position]} ${className}`}
     >
       <Image
         src={src}
         alt={alt}
         width={220}
         height={280}
-        className="h-auto w-28 drop-shadow-xl md:w-36 lg:w-44"
+        className="h-auto w-16 drop-shadow-xl sm:w-28 md:w-36 lg:w-44"
       />
     </motion.div>
   );
